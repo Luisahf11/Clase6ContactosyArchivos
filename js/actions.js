@@ -2,7 +2,7 @@ $(document).ready(function(e) {
     document.addEventListener("deviceready",function(){
 	//Contactos
 		//Crear Contactos
-		$('cSend').tap(function(){
+		$('#cSend').tap(function(){
 			var nom = $('#cNom').val();
 			var tel = $('#cTel').val();
 			var mov = $('#cMov').val();
@@ -27,7 +27,7 @@ $(document).ready(function(e) {
 			nueCont.emails = correos;
 			
 			nueCont.save (function(){
-			$('#cNom, #cTel, #cMovil, #cMail').val('');
+			$('#cNom, #cTel, #cMov, #cMail').val('');
 			navigator.notification.alert('Creado Satisfactoriamente', function(){
 				history.back();
 			}, 'Contactos', 'Aceptar');
