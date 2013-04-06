@@ -5,7 +5,7 @@ $(document).ready(function(e) {
 		$('#cSend').tap(function(){
 			var nom = $('#cNom').val();
 			var tel = $('#cTel').val();
-			var mov = $('#cMov').val();
+			var mov = $('#cMovil').val();
 			var mail = $('#cMail').val();
 			
 			//Crear objeta de contacto
@@ -27,7 +27,7 @@ $(document).ready(function(e) {
 			nueCont.emails = correos;
 			
 			nueCont.save (function(){
-			$('#cNom, #cTel, #cMov, #cMail').val('');
+			$('#cNom, #cTel, #cMovil, #cMail').val('');
 			navigator.notification.alert('Creado Satisfactoriamente', function(){
 				history.back();
 			}, 'Contactos', 'Aceptar');
