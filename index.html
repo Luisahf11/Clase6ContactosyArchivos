@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>jQTouch &beta;</title>
+        <link rel="stylesheet" href="css/vanilla.css" title="jQTouch">
+
+		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jqtouch.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/actions.js" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch.png',
+                icon4: 'jqtouch4.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black-translucent',
+                themeSelectionSelector: '#jqt #themes ul',
+                preloadImages: []
+            });
+
+            // Some sample Javascript functions:
+           
+        </script>
+        <style type="text/css" media="screen">
+            #jqt.fullscreen #home .info {
+                display: none;
+            }
+            div#jqt #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0;
+                color: #999;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            div#jqt #about p {
+                margin-bottom: 8px;
+            }
+            div#jqt #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="jqt">
+            <div id="about" class="selectable">
+                    <p><strong>Practica</strong><br>Clase 6<br>
+                    <p><em>Contactos<br>Archivos<br>Navegador Interno<br> </em></p>
+                    <p>
+                        <br><br><a href="#" class="grayButton goback">Cerrar</a></p>
+            </div>
+            <div id="home" class="current">
+                <div class="toolbar">
+                    <h1>Clase6</h1>
+                    <a class="button slideup" id="infoButton" href="#about">Info</a>
+                </div>
+                <div class="scroll">
+                    <ul class="rounded">
+                        <li class="arrow"><a href="#contactos">Contactos <small class="counter">2</small></a> </li>
+                        <li class="arrow"><a href="#archivos">Archivos <small class="counter">2</small></a></li>
+                        <li class="arrow"><a href="#navegador">Navegador Interno <small class="counter">1</small></a></li>
+                    </ul>
+                    </ul>
+                    <ul class="individual">
+                        <li><a target="_blank" href="http://twitter.com/!#/davidkaneda">luishf11@sistemas</a></li>
+                        <li><a target="_blank" href="http://twitter.com/!#/beedesk">luis-ahf@hotmail</a></li>
+                    </ul>
+                    <div class="info">
+                        <p>Probando App.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="contactos">
+                <div class="toolbar">
+                    <h1>Contactos</h1>
+                    <a href="#" class="back">Atras</a>
+                    <a class="button slideup" id="cAdd" href="#newContacto" style="font-size: 15px;">+</a>
+                </div>
+                    <ul class="plastic scroll">                   
+                    </ul>
+                 
+                 </div>
+                 <div id="newContacto">
+                <div class="toolbar">
+                    <h1>Contactos</h1>
+                    <a href="#" class="back">Cancelar</a>
+                </div>
+                    <ul class="plastic scroll">
+                    <li><input type="text" placeholder="Nombre" id="cNom" /></li>
+                    <li><input type="tel" placeholder="Telefono" id="cTel" /></li>
+                    <li><input type="tel" placeholder="Movil" id="cMovil" /></li>
+                    <li><input type="emal" placeholder="Correo Electronico" id="cMail" /></li>                    <li><a href="#" id="cSend" style="background: #090; color: #fff; text-align: center;">Crear Contacto</a> 
+                    </ul>
+            </div>
+            <div id="archivos">
+                <div class="toolbar">
+                    <h1>Archivos</h1>
+                    <a class="back" href="#">Events</a>
+               </div>
+                <div class="scroll">
+                <ul class="plastic"
+                <li><textarea id="aText"></textarea>
+                </li> 
+                 <ul class="individual">
+                        <li id="aCrear"><a href="#">Crear</a></li>
+                        <li id="aLeer"><a href="#">Leer</a></li>
+                    </ul>               
+                </div>
+            </div>
+            <div id="navegador">
+                <div class="toolbar">
+                    <h1>Navegador</h1>
+                    <a href="#" class="back">Atras</a>
+                </div>
+                <div class="scroll">
+                </ul>
+            </div>
+            <div id="ui">
+                <div class="toolbar">
+                    <h1>UI Demos</h1>
+                    <a class="back" href="#">Home</a>
+                </div>
+                <div class="scroll">
+                    <h2>Lists</h2>
+                    <ul class="rounded">
+                        <li class="arrow"><a href="#edge">Edge to Edge</a></li>
+                        <li class="arrow"><a href="#plastic">Plastic</a></li>
+                        <li class="arrow"><a href="#metal">Metal</a></li>
+                    </ul>
+                    <h2>Buttons</h2>
+                    <ul class="rounded">
+                        <li class="arrow"><a href="#buttons">Buttons</a></li>
+                    </ul>
+                    <h2>Forms</h2>
+                    <ul class="rounded">
+                        <li class="arrow"><a href="#forms">Forms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <form id="ajax_post" action="ajax_post.php" method="POST" class="form">
+                <div class="toolbar">
+                    <h1>Post Demo</h1>
+                    <a class="back" href="#">Ajax</a>
+                </div>
+                <div class="scroll">
+                    <ul class="rounded">
+                        <li><input type="text" name="zip" value="" placeholder="Zip Code" /></li>
+                    </ul>
+                    <h2>Favorite color?</h2>
+                    <ul class="rounded">
+                        <li><input type="radio" name="color" value="green" title="Green" /></li>
+                        <li><input type="radio" name="color" value="blue" title="Blue" /></li>
+                        <li><input type="radio" name="color" value="red" title="Red" /></li>
+                    </ul>
+                    <a style="margin-top: 10px; margin-bottom: 10px; color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Submit</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
