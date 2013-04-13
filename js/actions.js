@@ -50,5 +50,46 @@ $(document).ready(function(e) {
 		options.multiple=true; 
 		var fields = ["displayName", "name"];
 		navigator.contacts.find(fields, onSuccess, onError, options);
-	},false);
+		//archivos
+			//Crear o Escribir Archivos
+			$('#aCrear').tap(function(){
+				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(localSystem){
+					localSystem.root.getFile("readme.txt", {create: true, exclusive: false}, function(fileEntry){
+					fileEntry.createWriter(function(escritor){
+						escritor.onwrite = function(evt) {
+                			navigator.notification.alert("Archivo Escrito Correctamente", null, "Archivos","Aceptar");
+                    	};
+                		escritor.write($('#aText').val());
+				
+					}, function(err){
+						alert('Escritor: '+err.code);  	
+					});
+				}, function(err){
+						alert('Entrada: '+err.code);
+				});
+			}, function(err){
+				alert(err.code);
+			});	
+		});
+			//Leer Archivo
+			$('#aLeer').tap(function(){
+			    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(localSystem){
+					localSystem.root.getFile("readme.txt", null, function(fileEntry){
+						fileEntry.file(function(file){
+							 var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            $('#aText').val(evt.target.result);
+        };
+        reader.readAsText(file);
+						}, function(err){
+							alert('Acceso: '+err.code);
+						});
+					}, function(err){
+					alert('Entrada: '+err.code);
+				});
+				}, function(err){
+					alert(err.code);
+				});
+			});
+	}, false);
 });
