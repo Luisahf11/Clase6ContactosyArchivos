@@ -39,7 +39,7 @@ $(document).ready(function(e) {
 		function onSuccess(contacts) {
 			var cantidad = contacts.length;
 			for(i=0;i<5;i++){
-				$('#contactos ul.plastic').append('<li>'+contacts[i].formatted+'</li>');
+				$('#contactos ul.plastic').append('<li>'+contacts[i].name.formatted+'</li>');
 			}
 		};
 		function onError(contactError) {
