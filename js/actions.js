@@ -38,7 +38,7 @@ $(document).ready(function(e) {
 	//Leer contactos
 		function onSuccess(contacts) {
 			var cantidad = contacts.length;
-			for(i=0;i<5;i++){
+			for(i=0;i<cantidad;i++){
 				$('#contactos ul.plastic').append('<li>'+contacts[i].name.formatted+'</li>');
 			}
 		};
