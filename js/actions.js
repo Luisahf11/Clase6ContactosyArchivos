@@ -25,7 +25,6 @@ $(document).ready(function(e) {
 			var correos = [];
 			correos[0] = new ContactField('home',mail,true);
 			nueCont.emails = correos;
-			
 			nueCont.save (function(){
 			$('#cNom, #cTel, #cMovil, #cMail').val('');
 			navigator.notification.alert('Creado Satisfactoriamente', function(){
@@ -57,10 +56,11 @@ $(document).ready(function(e) {
 					localSystem.root.getFile("readme.txt", {create: true, exclusive: false}, function(fileEntry){
 					fileEntry.createWriter(function(escritor){
 						escritor.onwrite = function(evt) {
-                			navigator.notification.alert("Archivo Escrito Correctamente", null, "Archivos","Aceptar");
+                			navigator.notification.alert("Archivo Escrito Correctamente", function(){
+								$('#aText').val('');
+							}, "Archivos","Aceptar");
                     	};
                 		escritor.write($('#aText').val());
-				
 					}, function(err){
 						alert('Escritor: '+err.code);  	
 					});
